@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="mdc-typography" ng-app="exams_app"	>
+	<% include head.ejs %>
+
+  <body style="background: #f1f1f1;" id="my_handler_cntent">
+  		
+<style>
+
+
+.center_cont {
+display         : flex;
+justify-content : center;
+align-items     : center;
+}
+
+</style>
+<style>
+.demo-card-wide.mdl-card {
+  width:900px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 410px;
+  background: url("/assets/img/travel-trends-disruption-in-ota-space.png") center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
+
+
+
+    
+<div class="mdl-grid center_cont"  ng-controller="home_controller"  >
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp ">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Welcome</h2>
+  </div>
+  <div class="mdl-card__supporting-text mdl-grid ">
+    <div class="mdl-cell mdl-cell--6-col ">
+      <p>Chat</p>
+      <p>Event</p>
+      <p>Plan</p>
+      <p>Party</p>
+    </div>
+    <div class="mdl-cell mdl-cell--6-col ">
+
+
+      
+
+
+
+<div class="mdl-cell mdl-cell--4-col">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1139569109486953";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="false"></div>
+  </div>
+
+
+
+
+
+    </div>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      Get Started
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+   <div class="mdl-card__menu" ng-switch="user.logged" >
+
+
+     <div class=""   ng-switch-when="true">
+        <button class="mdl-button mdl-js-button mdl-button--raised">
+  dinukasaminda@gmail.com
+</button>
+<button class="mdl-button mdl-js-button mdl-button--raised">
+  logout
+</button>
+           
+
+            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary mdlext-js-menu-button" >
+                  <i class="material-icons my_connect_btns">verified_user</i>
+      
+        
+    </button>
+
+              <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary mdlext-js-menu-button" >
+                  <i class="material-icons my_connect_btns">perm_scan_wifi</i>
+                
+        
+    </button>
+
+                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--primary mdlext-js-menu-button"  >
+                  <i class="material-icons my_connect_btns">settings</i>
+                          
+        
+    </button>
+            
+              
+        </div>
+         <div class=""   ng-switch-when="false">
+           
+
+         </div>
+
+  </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<% include footer_bs.ejs %>
+		<% include footer_script.ejs %>
+  </body>
+</html>
+
+

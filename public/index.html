@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Stegnome</title>
+</head>
+
+<body>
+    <h1 class="m-5 title_text text-center display-1">Stegnome</h1>
+    <p class="m-1 title_text-2 text-center ">Steganography API , Copyright @ 2017 dinuka saminda bandara</p>
+    <hr>
+    <div class="row ml-2">
+        <div class="col-md-5 ">
+            <div class="row">
+                <h3 class="m-2 ml-5  text-center ">Encoder</h3>
+            </div>
+            <div class="row ">
+                <div class="container">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputbase64data3" class="col-sm-2 col-form-label">Base64 Data :</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputbase64data3" placeholder="Base64 Data">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Image</label>
+                            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                            <small id="fileHelp" class="form-text text-muted">Choose image to encode with data, maximum 5mb png image if not satisfy resolution then will get error.</small>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2">Checkbox</label>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox"> Check me out
+                            </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 ">
+                                <div class="btn btn-primary">Encode</div>
+                            </div>
+                            <div class="col-sm-2 ">
+                                <a class="btn btn-success" href="">Download Encoded Image</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 h-line">
+            <div class="row text-center">
+                <h3 class="m-2 ml-5  text-center ">Decoder</h3>
+            </div>
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Image</label>
+                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted">Choose Encoded image to decode to get data inside of the image, maximum 5mb png image</small>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-2 ">
+                            <div class="btn btn-primary">Decode</div>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="output_bs64text" class="col-sm-2 col-form-label"> Base64 Data :</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="output_bs64text" placeholder="Base64 Data" value="Norway" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="outputbase64decode" class="col-sm-2 col-form-label"> Decoded Base64 text :</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="outputbase64decode" placeholder="Base64 Data" value="Norway" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

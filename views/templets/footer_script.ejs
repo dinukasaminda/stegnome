@@ -1,0 +1,94 @@
+
+<script sync    src="/assets/js/jquery-3.1.1.min.js"></script>
+<script sync   src="/assets/js/jquery-3.2.1.min.js"></script>
+<script sync   src="/assets/js/tether.min.js"></script>
+
+<!--
+<script sync   src="/assets/js/bootstrap.min.js"></script>
+<script sync    src="/assets/date_picker/js/bootstrap-datepicker.min.js"></script>
+
+-->
+<script sync    src="/assets/js/angular.min.js"></script>
+<script sync    src="/assets/app/app.js"></script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+<script sync defer  src="/assets/material.js"></script>
+<script sync   defer src="/assets/mdl-ext/mdl-ext.min.js"></script>
+<script sync   defer src="/assets/mdl-ext/eq.min.js"></script>
+<script sync   defer src="/assets/mdl_dialogs/dialog-polyfill.js"></script>
+
+<script sync   src="/assets/app/my_utils.js"></script>
+<script sync   src="/assets//mdl-select/getmdl-select.min.js"></script>
+
+
+<script type="text/javascript">
+/*
+setTimeout(function(){ 
+$.getScript("/assets/js/angular.min.js", function( data, textStatus, jqxhr ) {
+ 
+  	console.log( "Load was performed." );
+  	$.getScript("/assets/app/app.js", function( data, textStatus, jqxhr ) {
+
+	  console.log( "Load was performed." );
+	});
+
+});
+	
+}, 9000);
+*/
+
+/*
+  var accessToken = false;
+$(document).ready(function() {
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+    FB.init({
+      appId: '1139569109486953',
+      version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+    });     
+    $('#loginbutton,#feedbutton').removeAttr('disabled');
+
+	FB.getLoginStatus(function(response) {
+	  if (response.status === 'connected') {
+	     accessToken = response.authResponse.accessToken;
+		console.log('token:'+accessToken);
+
+	  } 
+	} );
+    //FB.getLoginStatus(updateStatusCallback);
+  });
+});
+
+
+var i=0;
+function api1(q1){
+console.log('api1 called'+i);
+
+FB.api(
+  {
+    method: 'fql.query',
+    query: 'SELECT name FROM user WHERE uid=me()'
+  },
+  function(response) {
+    console.log('Your name is ' + JSON.stringify(response));
+  }
+);
+i++;
+}
+setTimeout(function(){ api1(); }, 3000);
+*/
+$('.my_search-box').addClass('col-md-2');
+	
+	$('.my_search-box').focus(function(){
+		console.log('aaaa');
+		$(this).addClass('mdl-cell--11-col');
+		$(this).removeClass('mdl-cell--2-col');
+
+	});
+	$('.my_search-box').focusout(function(){
+		console.log('aaaa');
+		$(this).removeClass('mdl-cell--11-col');
+		$(this).addClass('mdl-cell--2-col');
+
+	});
+</script>

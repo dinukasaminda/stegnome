@@ -1,0 +1,10 @@
+.title_text {}
+
+hr {
+    background: rgb(180, 255, 232);
+    padding: 1px;
+}
+
+.h-line {
+    border-left: solid #000000 2px;
+}
