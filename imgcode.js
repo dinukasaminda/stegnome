@@ -123,9 +123,7 @@ function decodebitandColorValue(cvalue) {
     return digit;
 }
 //Register
-router.get("/encode/", (req, res) => {
-    var data1 = req.params.code;
-
+module.exports.encode = function(data1, imgbuffer, callback) {
     var binarys = string2BinaryArray(data1);
 
     var num_bytes = binarys.length;
@@ -134,7 +132,7 @@ router.get("/encode/", (req, res) => {
     var byte_ind = 0;
     var dit_ind = 0;
 
-    Jimp.read("./public/img1.jpg")
+    Jimp.read(imgbuffer.data)
         .then(function(image1) {
             var w = image1.bitmap.width;
             var h = image1.bitmap.height;
@@ -166,42 +164,31 @@ router.get("/encode/", (req, res) => {
                         //var hex2 = Jimp.rgbaToInt(rgba);
                         image.setPixelColor(hx1, x, y);
                     } catch (err) {
-                        res.json({
-                            success: true,
-                            msg: err
-                        });
+                        callback(undefined, err);
                     }
                     // rgba values run from 0 - 255
                     // e.g. this.bitmap.data[idx] = 0; // removes red from this pixel
                 });
 
                 try {
-                    var file2 = "./public/new_name." + image.getExtension();
-                    image.write(file2);
+                    //var file2 = "./public/new_name." + image.getExtension();
+                    //image.write(file2);
                     //var v1 = Jimp.rgbaToInt(255, 255, 0, 255);
                     //image.getPixelColor(x, y);      // returns the colour of that pixel e.g. 0xFFFFFFFF
-
-                    res.json({
-                        success: true,
-                        msg: "ok"
+                    image.getBase64(Jimp.MIME_PNG, function(err, data) {
+                        callback(data, err);
                     });
                 } catch (err) {
-                    res.json({
-                        success: true,
-                        msg: err
-                    });
+                    callback(undefined, err);
                 }
             });
         })
         .catch(function(err) {
-            res.json({
-                success: false,
-                msg: err
-            });
+            callback(undefined, err);
         });
-});
+};
 
-router.get("/decode", (req, res) => {
+module.exports.decode = function(imgbuffer, callback) {
     var data_bytes = [];
     var num_digit = 7;
 
@@ -209,9 +196,9 @@ router.get("/decode", (req, res) => {
     var dit_ind = 0;
     var binary1 = "";
 
-    var max_bytes = 100000;
+    var max_bytes = 5000000;
     var reading = true;
-    Jimp.read("./public/new_name.png")
+    Jimp.read(imgbuffer.data)
         .then(function(image1) {
             var w = image1.bitmap.width;
             var h = image1.bitmap.height;
@@ -247,11 +234,7 @@ router.get("/decode", (req, res) => {
                         }
                     }
                 } catch (err) {
-                    res.json({
-                        success: false,
-                        code: 1003,
-                        msg: err
-                    });
+                    callback(undefined, err);
                 }
                 // rgba values run from 0 - 255
                 // e.g. this.bitmap.data[idx] = 0; // removes red from this pixel
@@ -264,26 +247,17 @@ router.get("/decode", (req, res) => {
                 for (var i = 0; i < data_bytes.length; i++) {
                     b64encoded += bin2char(data_bytes[i]);
                 }
-                res.json({
-                    success: true,
-                    code: 1002,
-                    b64: b64encoded,
-                    data: decodeBase64ToUTF(b64encoded)
-                });
+                callback({
+                        b64: b64encoded,
+                        data: decodeBase64ToUTF(b64encoded)
+                    },
+                    undefined
+                );
             } catch (err) {
-                res.json({
-                    success: false,
-                    code: 1005,
-                    msg: err
-                });
+                callback(undefined, err);
             }
         })
         .catch(function(err) {
-            res.json({
-                success: false,
-                code: 1007,
-                msg: err
-            });
+            callback(undefined, err);
         });
-});
-module.exports = router;
+};

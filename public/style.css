@@ -1,10 +1,21 @@
 .title_text {}
 
 hr {
-    background: rgb(180, 255, 232);
-    padding: 1px;
+    background: url("abc_bg.jpg");
+    padding: 4px;
+    background-position: 42% 0%;
 }
 
 .h-line {
     border-left: solid #000000 2px;
+}
+
+.hidden_cls {
+    visibility: hidden;
+    display: none;
+}
+
+.show_cls {
+    visibility: visible;
+    display: default;
 }

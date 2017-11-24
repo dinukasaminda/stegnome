@@ -12,27 +12,26 @@
 </head>
 
 <body>
-    <h1 class="m-5 title_text text-center display-1">Stegnome</h1>
+    <h1 class="m-2 title_text text-center display-1">Stegnome</h1>
     <p class="m-1 title_text-2 text-center ">Steganography API , Copyright @ 2017 dinuka saminda bandara</p>
     <hr>
     <div class="row ml-2">
         <div class="col-md-5 ">
             <div class="row">
-                <h3 class="m-2 ml-5  text-center ">Encoder   <%= data.val1 %></h3>
+                <h3 class="m-2 ml-5  text-center ">Encoder  </h3>
             </div>
             <div class="row ">
                 <div class="container">
                     <form>
-                        <input  type="hidden" id="integraty_code" value=""/>
                         <div class="form-group row">
-                            <label for="inputbase64data3" class="col-sm-2 col-form-label">Base64 Data :</label>
+                            <label for="inputbase64data3" class="col-sm-2 col-form-label">Text Data :</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputbase64data3" placeholder="Base64 Data">
+                                <input type="text" class="form-control" id="inputbase64data3" placeholder="Base64 Data" value="abcd">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputFile">Image</label>
-                            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                        <div class="form-group" id="imgfile1_prnt">
+                            <label for="exampleInputFile121">Image</label>
+                            <input type="file" class="form-control-file" id="exampleInputFile121" aria-describedby="fileHelp" accept="image/x-png,image/jpeg" >
                             <small id="fileHelp" class="form-text text-muted">Choose image to encode with data, maximum 5mb png image if not satisfy resolution then will get error.</small>
                         </div>
 
@@ -48,10 +47,10 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-2 ">
-                                <div class="btn btn-primary">Encode</div>
+                                <div class="btn btn-primary" onClick="encode_()">Encode</div>
                             </div>
                             <div class="col-sm-2 ">
-                                <a class="btn btn-success" href="">Download Encoded Image</a>
+                                <a class="btn btn-success hidden_cls" target="_blank" download="filename.jpg" id="imgencodedurl" href="">Download Encoded Image</a>
                             </div>
                         </div>
 
@@ -65,20 +64,21 @@
             </div>
             <div class="container">
                 <form>
-                    <div class="form-group">
-                        <label for="exampleInputFile">Image</label>
-                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                    <div class="form-group" id="imgfile2_prnt">
+                        <label for="filetodecode123">Image</label>
+                        <input type="file" class="form-control-file" id="filetodecode123" aria-describedby="fileHelp">
                         <small id="fileHelp" class="form-text text-muted">Choose Encoded image to decode to get data inside of the image, maximum 5mb png image</small>
                     </div>
 
 
                     <div class="form-group row">
                         <div class="col-sm-2 ">
-                            <div class="btn btn-primary">Decode</div>
+                            <div class="btn btn-primary" onClick="decode_()">Decode</div>
                         </div>
 
                     </div>
-                    <div class="form-group row">
+                    <div id="data_view" class="hidden_cls">
+                                        <div class="form-group row">
                         <label for="output_bs64text" class="col-sm-2 col-form-label"> Base64 Data :</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="output_bs64text" placeholder="Base64 Data" value="Norway" readonly>
@@ -90,13 +90,17 @@
                             <input type="text" class="form-control" id="outputbase64decode" placeholder="Base64 Data" value="Norway" readonly>
                         </div>
                     </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="api.js"></script>
 
